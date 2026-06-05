@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>【雙跨日分流版】11月西安+漢中秦巴秋色18天雙中心渡假提案</title>
+    <!-- 引入 Mermaid 繪圖晶片 -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
     <style>
         :root {
             --primary-color: #8C1D1D; 
@@ -56,6 +61,17 @@
 
         .info-card h3 { margin-top: 0; color: var(--primary-color); }
 
+        /* 流程圖專用外框 */
+        .chart-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: center;
+            overflow-x: auto; /* 手機板超出時可左右滑動 */
+        }
+
         h2 {
             color: var(--primary-color);
             border-bottom: 2px solid var(--primary-color);
@@ -93,7 +109,6 @@
         .tag-split { background-color: #EDE7F6; color: #5E35B1; }
         .tag-all { background-color: #E0F2FE; color: #0369A1; }
 
-        /* 分流專用區塊 */
         .split-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -101,33 +116,11 @@
             margin-top: 15px;
         }
 
-        .split-route {
-            padding: 20px;
-            border-radius: 6px;
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
-        }
-
-        .route-young {
-            background-color: #E1F5FE;
-            border-top: 5px solid var(--young-color);
-        }
+        .split-route { padding: 20px; border-radius: 6px; box-shadow: inset 0 0 5px rgba(0,0,0,0.05); }
+        .route-young { background-color: #E1F5FE; border-top: 5px solid var(--young-color); }
         .route-young h4 { margin: 0 0 10px 0; color: var(--young-color); font-size: 1.15rem; }
-
-        .route-elder {
-            background-color: #FCE4EC;
-            border-top: 5px solid var(--elder-color);
-        }
+        .route-elder { background-color: #FCE4EC; border-top: 5px solid var(--elder-color); }
         .route-elder h4 { margin: 0 0 10px 0; color: var(--elder-color); font-size: 1.15rem; }
-
-        .tips-box {
-            background-color: #FFFDE7;
-            border: 1px solid #FFF59D;
-            padding: 15px 20px;
-            border-radius: 6px;
-            margin-top: 15px;
-            font-size: 0.95rem;
-        }
-        .tips-box strong { color: #F57F17; }
 
         footer { background-color: #333; color: #fff; text-align: center; padding: 30px 20px; margin-top: 60px; font-size: 0.9rem; }
         @media (max-width: 600px) { body { font-size: 16px; } header h1 { font-size: 1.6rem; } }
@@ -145,12 +138,52 @@
         <div class="meta-info">
             <div class="info-card">
                 <h3>👥 9人團隊極致分流</h3>
-                <p>本行程針對戰鬥組設計了<strong>兩次「兩天一夜」的跨日特攻</strong>（陝北線與華山線）。這期間慢活組在飯店大行李完全不動，免受舟車勞頓。</p>
+                <p>本行程針對戰鬥組設計了<strong>兩次「兩天一夜」的跨日特攻</strong>（陝北線與華山線）與一次森林大分流。這期間慢活組在飯店大行李完全不動，免受舟車勞頓。</p>
             </div>
             <div class="info-card">
                 <h3>🎒 戰鬥組輕裝與防寒提示</h3>
                 <p>年輕人在 <strong>Day 4</strong> 與 <strong>Day 8</strong> 出發時，只需各自攜帶一個<strong>雙肩過夜包</strong>。11月的深山與陝北早晚溫差極大，請務必幫長輩與戰鬥組帶足防風防寒衣物。</p>
             </div>
+        </div>
+
+        <!-- 這裡就是自動渲染的視覺化流程圖 -->
+        <h3 style="color: var(--primary-color); margin-bottom: 10px;">🗺️ 團隊分流與合體邏輯視覺化</h3>
+        <div class="chart-card">
+            <pre class="mermaid">
+            graph TD
+                %% 樣式設定
+                classDef all fill:#FFF3E0,stroke:#FF9800,stroke-width:2px;
+                classDef young fill:#E1F5FE,stroke:#0288D1,stroke-width:2px;
+                classDef elder fill:#FCE4EC,stroke:#C2185B,stroke-width:2px;
+                
+                A[D1-D3 西安大合體<br>城牆/碑林/陝歷博] -->|D4 攜帶過夜包| B1[⚡ 戰鬥組：陝北特攻<br>甘泉大峽谷/壺口瀑布]
+                A -->|D4 大行李留客房| B2[🌸 慢活組：西安慢活<br>太后餃子宴/漢陽陵]
+                
+                B1 -->|D5 傍晚| C[D6-D7 西安再合體<br>兵馬俑/曲江池]
+                B2 -->|D5 傍晚| C
+                
+                C -->|D8 攜帶過夜包| D1[⚡ 戰鬥組：華山特攻<br>西峰晚霞/東峰日出/棧道]
+                C -->|D8 大行李留客房| D2[🌸 慢活組：臨潼渡假<br>皇家華清宮/初冬暖湯溫泉]
+                
+                D1 -->|D9 下午| E[D10-D12 西安秋色大合體<br>開元書院/千年銀杏/大唐不夜城]
+                D2 -->|D9 下午| E
+                
+                E -->|D13 高鐵大移防| F[D13 佛坪熊貓谷合體<br>看秦嶺熊貓+金絲猴]
+                
+                F -->|D14-D15| G[D14-D15 漢中深秋合體<br>留壩最美公路/黎坪巴山紅葉]
+                
+                G -->|D16 當日特攻| H1[⚡ 戰鬥組：紫柏山天坑健行]
+                G -->|D16 懶人纜車| H2[🌸 慢活組：雲端金色草甸漫步]
+                
+                H1 -->|D16 傍晚| I[D17 三國尋根與熱米皮大會合]
+                H2 -->|D16 傍晚| I
+                
+                I -->|D18| J[平安高鐵返家]
+                
+                class A,C,E,F,G,I,J all;
+                class B1,D1,H1 young;
+                class B2,D2,H2 elder;
+            </pre>
         </div>
 
         <h2>🏮 第一階段：大唐風韻 · 以「西安」為中心（第1-12天）</h2>
@@ -282,7 +315,7 @@
 
         <div class="day-card">
             <div class="day-title">Day 14：留壩隱世秋色 · 張良廟金黃銀杏與最美鄉村公路</div>
-            <p>包車前往秦嶺深處的留壩縣。參觀漢初傳奇【張良廟】，11月院內巨型古銀杏落英繽紛、滿地金黃。隨後乘車穿過【最美鄉村公路】，兩旁挺拔的水杉在初冬呈現火紅與金黃色澤，如童話隧道。晚餐安排熱騰騰的秦嶺土雞煲。</p>
+            <p>包車前往秦嶺深處的留壩縣。參觀漢初傳奇【張良廟】，11月院內巨型古銀杏落英繽紛、滿地金黃. 隨後乘車穿過【最美鄉村公路】，兩旁挺拔的水杉在初冬呈現火紅與金黃色澤，如童話隧道。晚餐安排熱騰騰的秦嶺土雞煲。</p>
         </div>
 
         <div class="day-card">
@@ -308,7 +341,7 @@
         </div>
 
         <div class="day-card">
-            <div class="day-title">Day 17：三國文化尋根 · 勉縣武侯祠與道地熱米皮宴</div>
+            <div class="day-title">Day 17:: 三國文化尋根 · 勉縣武侯祠與道地熱米皮宴</div>
             <p>上午前往勉縣參觀【武侯祠與武侯墓】。這裡是全中國唯一由皇帝下詔修建的武侯祠，真正諸葛亮長眠之所。園區古柏參天、全平路無階梯，非常適合長輩散步沉浸。下午回市區留白、採耳。晚餐大啖熱氣騰騰的現蒸<strong>漢中熱米皮</strong>與暖胃<strong>菜豆腐</strong>。</p>
         </div>
 
@@ -321,7 +354,7 @@
     </div>
 
     <footer>
-        <p>祝 9人大家庭各取所需、初冬溫泉暖身、看見國寶熊貓、慢活安適、夢想成真、全家平安！ 🌋⛰️🐼🍁🗿</p>
+        <p>祝 9人大家庭各取所需、初冬溫泉暖身、看見國寶熊貓、長輩安適、年輕人圓夢、全家平安！ 🌋⛰️🐼🍁🗿</p>
     </footer>
 
 </body>
